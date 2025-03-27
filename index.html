@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babayan's Photography Center</title>
+    <style>
+        /* General Styles */
+        h2 {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        body {
+            background-color: #dbeee3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5a7f71;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #a8d5ba;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Container Styles */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .text-content {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+        }
+
+        .image-content img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        /* Slider Styles */
+        .slider {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .slider-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .slider-img.active {
+            opacity: 1;
+        }
+
+        .controlls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 2;
+        }
+
+        .controlls img {
+            height: 30px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .controlls img:hover {
+            opacity: 1;
+        }
+
+        .controlls .prev {
+            margin-left: 10px;
+        }
+
+        .controlls .next {
+            margin-right: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #a8d5ba;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#">Main</a></li>
+            <li><a href="#">Informations</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Works</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="container">
+        <div class="text-content">
+            <h1>Babayan's Photography Center</h1>
+            <p><b><h2>"Babayan's photography center" since 2023, we have been working with professional devices and have a healthy audience. We have the most beautiful shots of nature. We also conduct photo shoots. By visiting "Babayan's photography center" you will capture the best moments of your life. With love "Babayan's photography center"</h2></b></p>
+        </div>
+    </section>
+
+    <!-- Slider Section -->
+    <div class="slider">
+        <img class="slider-img active" src="images/camera.jpg" alt="Image 1">
+        <img class="slider-img" src="images/cameraa.jpg" alt="Image 2">
+      
+        <div class="controlls">
+            <img class="prev" src="images/left.png" alt="Previous">
+            <img class="next" src="images/right.png" alt="Next">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><b>&copy; 2023 Babayan's Photography Center. All rights reserved.</b></p>
+    </footer>
+
+    <!-- JavaScript for Slider -->
+    <script>
+        const images = document.querySelectorAll('.slider-img');
+        const controlls = document.querySelectorAll('.controlls img');
+        let imageIndex = 0;
+
+        function show(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+            imageIndex = index;
+        }
+
+        controlls.forEach(control => {
+            control.addEventListener('click', (event) => {
+                if (event.target.classList.contains('prev')) {
+                    let index = imageIndex - 1;
+                    if (index < 0) {
+                        index = images.length - 1;
+                    }
+                    show(index);
+                } else if (event.target.classList.contains('next')) {
+                    let index = imageIndex + 1;
+                    if (index >= images.length) {
+                        index = 0;
+                    }
+                    show(index);
+                }
+            });
+        });
+
+        // Initialize the slider with the first image
+        show(imageIndex);
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+   /* General Styles */
+   h2{
+    text-align: center;
+}
+body {
+    background-color: #dbeee3;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #5a7f71;
+}
+
+p {
+    text-align: center;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #a8d5ba;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.text-content {
+    width: 50%;
+}
+
+.image-content img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #a8d5ba;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
